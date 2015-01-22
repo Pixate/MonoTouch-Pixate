@@ -1,9 +1,9 @@
-BTOUCH=/Developer/MonoTouch/usr/bin/btouch
+BTOUCH=/Developer/MonoTouch/usr/bin/btouch-native
 
 all: PixateFreestyle.dll
 
 PixateFreestyle.dll: Makefile Properties/AssemblyInfo.cs ApiDefinition.cs Extras.cs
-	$(BTOUCH) -unsafe ApiDefinition.cs Properties/AssemblyInfo.cs StructsAndEnums.cs -x Extras.cs --out=$@ --link-with=PixateFreestyle,PixateFreestyle -r=/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
+	$(BTOUCH) -unsafe --new-style ApiDefinition.cs Properties/AssemblyInfo.cs StructsAndEnums.cs -x Extras.cs --out=$@ --link-with=PixateFreestyle,PixateFreestyle -r=/Developer/MonoTouch/usr/lib/mono/2.1/System.Core.dll
 
 mdtool:
 	'/Applications/Xamarin Studio.app/Contents/MacOS/mdtool' build
